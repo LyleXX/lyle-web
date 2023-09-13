@@ -1,3 +1,4 @@
+import Earth from './three/Earth'
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
           Learn React
         </a>
       </header>
+      <Earth />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

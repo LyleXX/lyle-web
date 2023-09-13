@@ -8,7 +8,7 @@ import { punctuation } from "../world/Earth";
  * @param {经度(角度值)} longitude 
  * @param {维度(角度值)} latitude
  */
-export const lon2xyz = (R:number, longitude:number, latitude:number): Vector3 => {
+export const lon2xyz = (R: number, longitude: number, latitude: number): Vector3 => {
   let lon = longitude * Math.PI / 180; // 转弧度值
   const lat = latitude * Math.PI / 180; // 转弧度值
   lon = -lon; // js坐标系z坐标轴对应经度-90度，而不是90度

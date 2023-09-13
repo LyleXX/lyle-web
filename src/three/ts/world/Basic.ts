@@ -51,7 +51,7 @@ export class Basic {
   setControls() {
     // 鼠标控制      相机，渲染dom
     this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-    
+
     this.controls.autoRotateSpeed = 3
     // 使动画循环使用时阻尼或自转 意思是否有惯性
     this.controls.enableDamping = true;
