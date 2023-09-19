@@ -64,5 +64,10 @@ module.exports = function ({ addBase, addUtilities, addComponents, theme }) {
     '.text-shadow-6': {
       'text-shadow': '-0.06ex 0 currentColor, 0.06ex 0 currentColor',
     },
+    '.flex-center': {
+      display: 'flex',
+      'justify-content': 'center',
+      'align-items': 'center',
+    },
   })
 }

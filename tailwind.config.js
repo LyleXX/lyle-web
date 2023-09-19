@@ -2,15 +2,11 @@ module.exports = {
   presets: [require('./src/css/tw/preset')],
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}', './src/css/transition/*.scss'],
 
-  darkMode: 'media', // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       screens: {
-        sm: '640px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1230px',
-        '2xl': '1728px',
+        pc: '1330px',
       },
       container: {
         center: true,
@@ -18,92 +14,24 @@ module.exports = {
       },
       colors: {
         dark: {
-          0: '#001529',
-          1: '#11242f',
-          2: '#221d35',
-          3: '#353535',
-          4: '#4a4a4a',
-          5: '#555',
-          6: '#666',
-          7: '#72777a',
-          8: '#8c8c8c',
-          9: '#979c9e',
-          10: '#777790',
-          ee: '#EEF2F6',
+          bb: '#1f2025',
+          t3:'#777790'
         },
         light: {
-          1: '#a3a9af',
-          2: '#bbb',
-          3: '#c4c4c4',
-          4: '#ddd',
-          5: '#d3d4d8',
-          6: '#d8d8d8',
-          7: '#e5e5e5',
-          75: '#EDF2F7',
-          8: '#f1f1f1',
-          83: '#F3F3F3',
-          85: '#f4f7fb',
-          9: '#f9f9f9',
-          aqua: '#f6fafc',
-          purple: 'rgb(114, 46, 209)',
-        },
-        p: {
-          DEFAULT: '#11242f',
-          hover: 'rgba(17, 36, 47, 0.7)',
-          active: '#11242f',
-        },
-        alt: {
-          DEFAULT: '#54b7ad',
-        },
-        info: {
-          light: '#2F80ED',
-          DEFAULT: '#0a37f2',
-          active: '#2395f1',
-        },
-        danger: {
-          DEFAULT: '#ff4d4f',
-        },
-        success: {
-          soft: '#f2fcf7',
-          DEFAULT: '#28ca42',
-          dark: '#006a51',
-        },
-        warning: {
-          DEFAULT: '#f9d247',
-        },
-        status: {
-          green: '#52c41a',
-          blue: '#1890ff',
-          orange: '#faad14',
-          red: '#ff4d4f',
-          gray: '#b1b3b8',
-          created: '#ff6200',
-          scheduled: '#dfbea8',
-          pending: '#0091ff',
-          processing: '#af51de',
-          onhold: '#f7b500',
-          executed: '#06ca64',
-          rejected: '#fe2b52',
-          cancelled: '#9b9b9b',
-          completed: '#6dd400',
-          partcompleted: '#4a4a4a',
-          voided: '#9b9b9b',
-        },
-        message: {
-          system: 'rgba(0, 0, 0, .3)',
-          gray: '#a0acb6',
-          user: '#ce671b',
+          bb: '#f7f7f7',
+          t3:'#9b9b9b'
         },
       },
       borderColor: {
-        DEFAULT: '#e5e5e5',
+        DEFAULT: '#f1f2f2',
+        dark: '#3c3f4a',
       },
       backgroundImage: {
         'gradient-image-text': 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, .7))',
         'gradient-mask-trial':
-            'linear-gradient(to bottom, transparent, cubic-bezier(0, 0, 0.15, 1), rgba(255, 255, 255, 1))',
+          'linear-gradient(to bottom, transparent, cubic-bezier(0, 0, 0.15, 1), rgba(255, 255, 255, 1))',
         'gradient-mask-footer':
-            'linear-gradient(to bottom, transparent, cubic-bezier(0.25, 0, 0, 1), rgba(255, 255, 255, 1))',
+          'linear-gradient(to bottom, transparent, cubic-bezier(0.25, 0, 0, 1), rgba(255, 255, 255, 1))',
       },
       boxShadow: {
         avatar: '0 0 2Px rgba(0, 0, 0, 0.2)',
