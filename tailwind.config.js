@@ -13,9 +13,14 @@ module.exports = {
         padding: '15px',
       },
       colors: {
+        p: 'rgb(var(--p) / <alpha-value>)',
         bb: 'rgb(var(--bb) / <alpha-value>)',
+        b1: 'rgb(var(--b1) / <alpha-value>)',
+        t1: 'rgb(var(--t1) / <alpha-value>)',
         t3: 'rgb(var(--t3) / <alpha-value>)',
+        t4: 'rgb(var(--t4) / <alpha-value>)',
         bd: 'rgb(var(--bd) / <alpha-value>)',
+        white: '#fff',
       },
       borderColor: {
         DEFAULT: 'rgb(var(--bd) / <alpha-value>)',
