@@ -13,18 +13,12 @@ module.exports = {
         padding: '15px',
       },
       colors: {
-        dark: {
-          bb: '#1f2025',
-          t3:'#777790'
-        },
-        light: {
-          bb: '#f7f7f7',
-          t3:'#9b9b9b'
-        },
+        bb: 'rgb(var(--bb) / <alpha-value>)',
+        t3: 'rgb(var(--t3) / <alpha-value>)',
+        bd: 'rgb(var(--bd) / <alpha-value>)',
       },
       borderColor: {
-        DEFAULT: '#f1f2f2',
-        dark: '#3c3f4a',
+        DEFAULT: 'rgb(var(--bd) / <alpha-value>)',
       },
       backgroundImage: {
         'gradient-image-text': 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, .7))',

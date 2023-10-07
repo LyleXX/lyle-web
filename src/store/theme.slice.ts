@@ -1,12 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AppDispatch, RootState } from "store/index";
+import { RootState } from "store/index";
 
 interface State {
   theme: "light" | "dark";
 }
-
+const localTheme = localStorage.getItem('theme') as State['theme']
 const initialState: State = {
-  theme: "light",
+  theme: localTheme ? localTheme : "light",
 };
 
 export const themeSlice = createSlice({
@@ -15,6 +15,7 @@ export const themeSlice = createSlice({
   reducers: {
     setTheme(state,) {
       state.theme = state.theme === "light" ? "dark" : "light";
+      localStorage.setItem("theme", state.theme);
     },
   },
 });

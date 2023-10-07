@@ -10,7 +10,7 @@ const App = memo(() => {
     document.querySelector('html').className = theme
   }, [theme])
   return (
-    <div className="bg-light-bb dark:bg-dark-bb h-[100vh]">
+    <div className="bg-bb h-[100vh]">
       <Header />
     </div>
   )

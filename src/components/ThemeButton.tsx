@@ -9,7 +9,7 @@ const ThemeButton = memo(() => {
   return (
     <div
       className={`
-    bg-light-t3/20 text-light-t3 dark:bg-dark-t3/20 dark:text-dark-t3 flex-center flex  cursor-pointer rounded-full sq-32 ${
+    bg-t3/20 text-t3   flex-center flex  cursor-pointer rounded-full sq-32 ${
       useSelector(selectTheme) === 'light' ? 'active:text-[#FFD200]' : 'active:text-[#0173CC]'
     }
   `}
