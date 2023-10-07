@@ -14,6 +14,7 @@ module.exports = {
       },
       colors: {
         p: 'rgb(var(--p) / <alpha-value>)',
+        pt: 'rgb(var(--pt) / <alpha-value>)',
         bb: 'rgb(var(--bb) / <alpha-value>)',
         b1: 'rgb(var(--b1) / <alpha-value>)',
         t1: 'rgb(var(--t1) / <alpha-value>)',

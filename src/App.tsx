@@ -3,9 +3,8 @@ import React, { memo } from 'react'
 import { useEffect } from 'react'
 import { selectTheme } from 'store/theme.slice'
 import { useSelector } from 'react-redux'
-import { Navigate, Route, Routes } from 'react-router'
-import { BrowserRouter as Router } from 'react-router-dom'
-import Home from 'pages/Home'
+import { useRoutes } from 'react-router'
+import routes from 'router'
 
 const App = memo(() => {
   const theme = useSelector(selectTheme)
@@ -15,12 +14,7 @@ const App = memo(() => {
   return (
     <div className=" h-[100vh] bg-bb">
       <Header />
-      <Router>
-        <Routes>
-          <Route path={'/home'} element={<Home />} />
-        </Routes>
-        <Navigate to={'/home'} />
-      </Router>
+      <div>{useRoutes(routes)}</div>
     </div>
   )
 })
