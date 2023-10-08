@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect, useRef } from 'react'
+import React, { memo, useEffect, useRef } from 'react'
 import 'vditor/dist/index.css'
 import Vditor from 'vditor'
 import { selectTheme } from 'store/theme.slice'
