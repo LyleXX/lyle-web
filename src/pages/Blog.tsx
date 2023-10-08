@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 import { ReactComponent as Plus } from 'assets/svg/plus.svg'
+import MdEditor from 'components/MdEditor'
 
 const Blog = memo(() => {
   return (
@@ -10,6 +11,7 @@ const Blog = memo(() => {
           新增blog
         </button>
       </div>
+      <MdEditor />
     </div>
   )
 })

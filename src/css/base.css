@@ -95,23 +95,19 @@ html ::-webkit-scrollbar-track {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.prettier-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: #d2cfcf transparent;
-}
-.prettier-scroll ::-webkit-scrollbar {
+html ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
-.prettier-scroll ::-webkit-scrollbar-thumb {
+html ::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: #d2cfcf;
 }
-.prettier-scroll ::-webkit-scrollbar-thumb:hover {
+html ::-webkit-scrollbar-thumb:hover {
   background-color: #6c6a6a;
   scrollbar-color: #6c6a6a transparent;
 }
-.prettier-scroll ::-webkit-scrollbar-track {
+html ::-webkit-scrollbar-track {
   background-color: transparent;
 }
 .light {

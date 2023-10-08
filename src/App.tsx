@@ -12,7 +12,7 @@ const App = memo(() => {
     document.querySelector('html').className = theme
   }, [theme])
   return (
-    <div className=" h-[100vh] bg-bb">
+    <div className=" min-h-[100vh] bg-bb ">
       <Header />
       <div>{useRoutes(routes)}</div>
     </div>

@@ -106,27 +106,25 @@ html {
   text-overflow: ellipsis;
   overflow: hidden;
 }
-.prettier-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: #d2cfcf transparent;
-  ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
 
-    &-thumb {
-      border-radius: 4px;
-      background-color: #d2cfcf;
-      &:hover {
-        background-color: #6c6a6a;
-        scrollbar-color: #6c6a6a transparent;
-      }
-    }
+html ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
 
-    &-track {
-      background-color: transparent;
+  &-thumb {
+    border-radius: 4px;
+    background-color: #d2cfcf;
+    &:hover {
+      background-color: #6c6a6a;
+      scrollbar-color: #6c6a6a transparent;
     }
   }
+
+  &-track {
+    background-color: transparent;
+  }
 }
+
 .light {
   --bb: 247 247 247;
   --b1: 255 255 255;
