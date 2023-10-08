@@ -19,7 +19,7 @@ const Header = memo(() => {
           <div className="flex items-center space-x-20">
             <div
               className={`${
-                pathname === '/home' ? 'bg-p/5 text-pt  dark:bg-p' : 'text-t3 hover:bg-t3/10'
+                pathname === '/home' ? 'bg-p/5 text-pt dark:bg-p' : 'text-t3 hover:bg-t3/10'
               } mx-3
               flex cursor-pointer items-center rounded-full px-20
               py-7 font-serif text-19`}
