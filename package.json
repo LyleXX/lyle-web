@@ -20,6 +20,7 @@
     "dayjs": "^1.11.10",
     "gsap": "^3.12.2",
     "html2canvas": "^1.4.1",
+    "keen-slider": "^6.8.6",
     "normalize.css": "^8.0.1",
     "pietile-eventemitter": "^1.0.1",
     "prettier": "^3.0.3",

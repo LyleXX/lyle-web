@@ -1,11 +1,11 @@
-import HomeCalendar from 'components/HomeCalendar'
+// import HomeCalendar from 'components/HomeCalendar'
 import React, { memo, useState } from 'react'
+import Swiper from 'components/Swiper'
 
 const Home = memo(() => {
-  const [activeDate, setActiveDate] = useState<Date | undefined>()
+  // const [activeDate, setActiveDate] = useState<Date | undefined>()
   return (
     <div className="mx-auto w-screen-pc text-t1">
-      home
       <div className="flex justify-end">
         <iframe
           title="music"
@@ -15,7 +15,8 @@ const Home = memo(() => {
           allow="autoplay"
         ></iframe>
       </div>
-      <HomeCalendar activeDate={activeDate} changeActiveDate={(val) => setActiveDate(val)} />
+      <Swiper />
+      {/* <HomeCalendar activeDate={activeDate} changeActiveDate={(val) => setActiveDate(val)} /> */}
     </div>
   )
 })
