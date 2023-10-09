@@ -4,8 +4,17 @@ import React, { memo, useState } from 'react'
 const Home = memo(() => {
   const [activeDate, setActiveDate] = useState<Date | undefined>()
   return (
-    <div className="text-t1 mx-auto w-screen-pc">
+    <div className="mx-auto w-screen-pc text-t1">
       home
+      <div className="flex justify-end">
+        <iframe
+          title="music"
+          width={280}
+          height={86}
+          src="//music.163.com/outchain/player?type=2&id=1942594143&auto=1&height=66"
+          allow="autoplay"
+        ></iframe>
+      </div>
       <HomeCalendar activeDate={activeDate} changeActiveDate={(val) => setActiveDate(val)} />
     </div>
   )
