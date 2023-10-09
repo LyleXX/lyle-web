@@ -1,12 +1,14 @@
 // import HomeCalendar from 'components/HomeCalendar'
 import React, { memo, useState } from 'react'
 import Swiper from 'components/Swiper'
+import { ReactComponent as MusicIcon } from 'assets/svg/music.svg'
 
 const Home = memo(() => {
   // const [activeDate, setActiveDate] = useState<Date | undefined>()
   return (
     <div className="mx-auto w-screen-pc text-t1">
-      <div className="flex justify-end">
+      <div className="flex items-center justify-between">
+        <MusicIcon className="sq-20" />
         <iframe
           title="music"
           width={280}
