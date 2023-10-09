@@ -5,6 +5,7 @@ import { selectTheme } from 'store/theme.slice'
 import { useSelector } from 'react-redux'
 import { useRoutes } from 'react-router'
 import routes from 'router'
+import Footer from 'components/Footer'
 
 const App = memo(() => {
   const theme = useSelector(selectTheme)
@@ -12,9 +13,10 @@ const App = memo(() => {
     document.querySelector('html').className = theme
   }, [theme])
   return (
-    <div className=" min-h-[100vh] bg-bb ">
+    <div className=" flex h-[100vh] flex-col  bg-bb ">
       <Header />
-      <div>{useRoutes(routes)}</div>
+      <div className="flex-1 overflow-y-scroll">{useRoutes(routes)}</div>
+      <Footer />
     </div>
   )
 })

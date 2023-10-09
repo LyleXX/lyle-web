@@ -1,6 +1,5 @@
 import React, { memo } from 'react'
 import ThemeButton from 'components/ThemeButton'
-import { ReactComponent as Fries } from 'assets/svg/fries.svg'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
 const Header = memo(() => {
@@ -29,7 +28,7 @@ const Header = memo(() => {
             </div>
             <div
               className={`${
-                pathname === '/blog' ? 'bg-p/5 text-pt   dark:bg-p' : 'text-t3 hover:bg-t3/10'
+                pathname === '/blog' ? 'bg-p/5 text-pt  dark:bg-p' : 'text-t3 hover:bg-t3/10'
               } mx-3
               flex cursor-pointer items-center rounded-full px-20
               py-7 font-serif text-19`}

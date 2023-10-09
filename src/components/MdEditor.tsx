@@ -57,17 +57,12 @@ const MdEditor = memo(() => {
           ],
         },
       ],
-      cache: {
-        enable: false,
-      },
-      after: () => {
-        vditorRef.current.setValue('')
-      },
     })
   }, [theme])
 
   function logVd() {
     console.log(vditorRef.current.getValue())
+    localStorage.removeItem('vditorvditor')
   }
   return (
     <VditorContainer>
@@ -86,6 +81,7 @@ const VditorContainer = styled.div`
     --tw-text-opacity: 1;
     color: rgb(var(--t3) / var(--tw-text-opacity)) !important;
   }
+  margin-top: 20px;
 `
 
 export default MdEditor
