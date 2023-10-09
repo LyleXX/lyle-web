@@ -12,7 +12,7 @@ const Header = memo(() => {
     navigate('/blog')
   }
   return (
-    <div className="sticky  top-0 z-header bg-bb">
+    <div className="sticky top-0 z-header bg-bb">
       <div className="mx-auto w-screen-pc  bg-bb px-15">
         <div className="flex h-90 items-center justify-between border-b px-10 ">
           <div className="flex items-center space-x-20">

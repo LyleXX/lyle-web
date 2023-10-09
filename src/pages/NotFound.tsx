@@ -91,11 +91,11 @@ const NotFound = memo(() => {
     navigate('/home')
   }
   return (
-    <div className="mx-auto mt-50 flex w-screen-pc items-center text-t1">
+    <div className=" mt-50 flex  items-center ">
       <NotFoundIcon />
       <div className="w-1/2">
         <p className="-tracking-1 text-[50px]">Page Not Found</p>
-        <p className="text-n mt-20 text-20">The page doesn’t exist or some error occurred</p>
+        <p className="mt-20 text-20 text-n">The page doesn’t exist or some error occurred</p>
         <button className="btn btn-o btn-md mt-20" onClick={jumpHome}>
           返回首页
         </button>

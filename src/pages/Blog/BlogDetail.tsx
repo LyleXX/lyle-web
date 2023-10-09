@@ -9,7 +9,7 @@ const BlogDetail = memo(() => {
   ~~~
   `
   return (
-    <div className="mx-auto w-screen-pc px-10 text-t1">
+    <div className=" px-10 ">
       <MdPreview markdown={markdown} />
     </div>
   )

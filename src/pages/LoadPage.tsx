@@ -5,7 +5,7 @@ import { Spin } from 'antd'
 const LoadPage = memo(() => {
   const antIcon = <LoadingOutlined style={{ fontSize: 50 }} spin />
   return (
-    <div className="mx-auto mt-[45vh] flex w-screen-pc justify-center">
+    <div className=" mt-[45vh] flex justify-center">
       <Spin indicator={antIcon} />
     </div>
   )

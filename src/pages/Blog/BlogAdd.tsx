@@ -3,7 +3,7 @@ import MdEditor from 'components/MdEditor'
 
 const BlogAdd = memo(() => {
   return (
-    <div className="mx-auto w-screen-pc px-10 text-t1">
+    <div className=" px-10 ">
       <MdEditor />
     </div>
   )
