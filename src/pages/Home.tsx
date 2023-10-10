@@ -1,7 +1,9 @@
 // import HomeCalendar from 'components/HomeCalendar'
-import React, { memo, useState } from 'react'
+import React, { memo } from 'react'
 import Swiper from 'components/Swiper'
 import { ReactComponent as MusicIcon } from 'assets/svg/music.svg'
+import TypeWrite from 'components/TypeWrite'
+import Keyboard from 'components/keyborad'
 
 const Home = memo(() => {
   // const [activeDate, setActiveDate] = useState<Date | undefined>()
@@ -18,6 +20,8 @@ const Home = memo(() => {
         ></iframe>
       </div>
       <Swiper />
+      <TypeWrite />
+      <Keyboard />
       {/* <HomeCalendar activeDate={activeDate} changeActiveDate={(val) => setActiveDate(val)} /> */}
     </div>
   )
