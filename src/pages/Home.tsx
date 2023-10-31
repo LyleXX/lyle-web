@@ -1,12 +1,14 @@
 // import HomeCalendar from 'components/HomeCalendar'
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import Swiper from 'components/Swiper'
 import { ReactComponent as MusicIcon } from 'assets/svg/music.svg'
 import TypeWrite from 'components/TypeWrite'
 import Keyboard from 'components/keyborad'
+import LoginModal from 'components/LoginModal'
 
 const Home = memo(() => {
   // const [activeDate, setActiveDate] = useState<Date | undefined>()
+  const [modalShow, setModalShow] = useState(false)
   return (
     <div className=" ">
       <div className="flex items-center justify-between">
@@ -21,7 +23,8 @@ const Home = memo(() => {
       </div>
       <Swiper />
       <TypeWrite />
-      <Keyboard />
+      <Keyboard setModalShow={setModalShow} />
+      <LoginModal modalShow={modalShow} setModalShow={setModalShow} />
       {/* <HomeCalendar activeDate={activeDate} changeActiveDate={(val) => setActiveDate(val)} /> */}
     </div>
   )

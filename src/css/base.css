@@ -67,7 +67,6 @@ textarea,
 select,
 input {
   font-size: 16px;
-  color: #333;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #f5f5f5;
 }
@@ -113,28 +112,33 @@ html ::-webkit-scrollbar-track {
 .light {
   --b1: 255 255 255;
   --b2: 251 251 251;
+  --b3: 248 248 248;
   --b4: 241 241 241;
   --bb: 247 247 247;
   --bd: 241 242 242;
   --n: 78 86 107;
-  --t1: 0 0 0;
+  --lb: 155 155 155, --t1: 0 0 0;
   --t3: 155 155 155;
   --t4: 198 198 198;
   --p: 66 0 64;
   --pt: 66 0 64;
+  --ph: 155 155 155;
 }
 .dark {
   --b1: 38 40 49;
   --b2: 31 32 37;
+  --b3: 60 63 74;
   --b4: 44 47 58;
   --bb: 31 32 37;
   --bd: 60 63 74;
   --n: 119 119 144;
+  --lb: 119 119 144;
   --t1: 255 255 255;
   --t3: 119 119 144;
   --t4: 119 119 144;
   --p: 66 0 64;
   --pt: 255 255 255;
+  --ph: 119 119 144;
 }
 .btn {
   cursor: pointer;
@@ -175,4 +179,41 @@ html ::-webkit-scrollbar-track {
   padding-bottom: 8px;
   font-size: 16px;
   line-height: 24px;
+}
+.input {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+  border: 1px solid rgb(var(--b3) / var(--tw-border-opacity));
+  --tw-border-opacity: 1;
+  --tw-bg-opacity: 1;
+  background-color: rgb(var(--b3) / var(--tw-bg-opacity));
+  padding: 11px 15px;
+  color: rgb(var(--t1) / var(--tw-text-opacity));
+}
+.input:disabled {
+  color: rgb(var(--t3) / var(--tw-text-opacity));
+  opacity: 1;
+  -webkit-text-fill-color: rgb(var(--t3));
+}
+.input::-webkit-credentials-auto-fill-button {
+  background-color: transparent;
+  pointer-events: none;
+}
+.input:focus,
+.select:focus {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(var(--p) / var(--tw-ring-opacity));
+  border: 1px solid rgb(var(--p) / var(--tw-border-opacity));
+}
+.dark .input :focus,
+.dark .select :focus {
+  --tw-border-opacity: 1;
+  border-color: rgb(var(--t3) / var(--tw-border-opacity));
+  --tw-ring-color: rgb(var(--t3) / var(--tw-ring-opacity));
+  border: 1px solid rgb(var(--t3) / var(--tw-border-opacity));
+}
+.input::placeholder,
+.select::placeholder {
+  color: rgb(var(--ph) / var(--tw-text-opacity));
 }

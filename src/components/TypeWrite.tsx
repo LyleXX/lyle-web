@@ -6,14 +6,11 @@ const TypeWrite = memo(() => {
   // 最终版 封装 解决异步任务
   useEffect(() => {
     let timeId = null
-    const str = [
-      '你好 ,我是一名刚入坑不久的大三在校生。',
-      '现在学习都是为了将来的工作。',
-      '希望能够得到大家的鼓励，谢谢！',
-    ]
+    const str = ['但行好事', '莫问前程']
     function writeText(t, delay = 200) {
       return new Promise((resolve, reject) => {
         timeId = setTimeout(() => {
+          if (!textRef.current) return
           textRef.current.innerHTML = t // 显示当前字符串 t
           resolve('') // Promise 完成
         }, delay) // 延迟 delay 毫秒后执行

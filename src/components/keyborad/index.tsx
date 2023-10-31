@@ -2,7 +2,7 @@
  * @link https://codepen.io/jkantner/pen/ZEqKgWJ
  */
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import KeyboardContainer from './style'
 
 const activeClass = 'active'
@@ -10,7 +10,10 @@ const isMac = () => {
   return /(Mac|iP[ahno]+[de])/i.test(navigator.userAgent)
 }
 
-const Keyboard = () => {
+const Keyboard = (props) => {
+  const { setModalShow } = props
+  const [enterKey, setEnterKey] = useState([])
+
   useEffect(() => {
     const el = document.querySelector<HTMLDivElement>('.keyboard')!
 
@@ -18,11 +21,21 @@ const Keyboard = () => {
       const keyEl = el?.querySelector(`[data-key="${key}"]`)
       if (target.type === 'keydown') {
         keyEl?.classList.add(activeClass)
+        if (!enterKey.includes(key)) {
+          setEnterKey([...enterKey, key])
+        }
       } else {
         el?.querySelectorAll(`[data-key]`)?.forEach((i) => {
           i.classList.remove(activeClass)
         })
+        setEnterKey([])
       }
+    }
+    const isArrEqual = (arr1, arr2) => {
+      if (arr1[0] === arr2[0] && arr1[1] === arr2[1] && arr1[2] === arr2[2]) {
+        return true
+      }
+      return false
     }
 
     const keyAction = (target: KeyboardEvent) => {
@@ -38,6 +51,10 @@ const Keyboard = () => {
       if (isCmd || isCtrl) {
         toggleActive(target, 'cmd')
       }
+
+      if (isArrEqual(enterKey, ['v', 'cmd', 'c'])) {
+        setModalShow(true)
+      }
     }
 
     window.addEventListener('keydown', keyAction)
@@ -47,7 +64,7 @@ const Keyboard = () => {
       window.removeEventListener('keydown', keyAction)
       window.removeEventListener('keyup', keyAction)
     }
-  }, [])
+  }, [enterKey])
 
   return (
     <KeyboardContainer>
