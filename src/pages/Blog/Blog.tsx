@@ -1,10 +1,13 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import { ReactComponent as Plus } from 'assets/svg/plus.svg'
 import { useNavigate } from 'react-router-dom'
 import dayjs from 'dayjs'
+import Pagination from 'components/Pagination'
 
 const Blog = memo(() => {
   const navigate = useNavigate()
+  const [pageIndex, setIndex] = useState(1)
+  const [totalPage, setTotalPage] = useState(5)
   function jumpAdd() {
     navigate('/blog/add')
   }
@@ -51,6 +54,12 @@ const Blog = memo(() => {
           )
         })}
       </div>
+      <Pagination
+        className="mt-20 flex justify-end"
+        pageIndex={pageIndex}
+        setIndex={setIndex}
+        totalPage={totalPage}
+      />
     </div>
   )
 })
