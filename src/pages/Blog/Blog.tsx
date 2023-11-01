@@ -1,13 +1,16 @@
 import React, { memo, useState } from 'react'
 import { ReactComponent as Plus } from 'assets/svg/plus.svg'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { token } from 'store/auth.slice'
 import dayjs from 'dayjs'
 import Pagination from 'components/Pagination'
 
 const Blog = memo(() => {
   const navigate = useNavigate()
   const [pageIndex, setIndex] = useState(1)
-  const [totalPage, setTotalPage] = useState(5)
+  const [totalPage] = useState(5)
+  const auth = useSelector(token)
   function jumpAdd() {
     navigate('/blog/add')
   }
@@ -24,12 +27,14 @@ const Blog = memo(() => {
   ]
   return (
     <div className=" px-10 ">
-      <div className="mt-10 flex justify-end">
-        <button className="btn btn-o btn-md flex items-center text-t3" onClick={jumpAdd}>
-          <Plus className="mr-5 sq-14" />
-          新增blog
-        </button>
-      </div>
+      {auth && (
+        <div className="mt-10 flex justify-end">
+          <button className="btn btn-o btn-md flex items-center text-t3" onClick={jumpAdd}>
+            <Plus className="mr-5 sq-14" />
+            新增blog
+          </button>
+        </div>
+      )}
       <div className="mt-20">
         {blogList.map((blog) => {
           return (

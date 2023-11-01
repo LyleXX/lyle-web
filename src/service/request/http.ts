@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { TIMEOUT, BASE_URL } from './config'
 import message from 'utils/message'
-
+import { store } from 'store'; // 假设你已经创建了Redux store
 interface IJJRequestInterceptors<T = AxiosResponse> {
   //请求成功
   requestInterceptor?: (config: AxiosRequestConfig) => AxiosRequestConfig
@@ -109,7 +109,7 @@ export const http = new JJRequest({
   timeout: TIMEOUT,
   interceptors: {
     requestInterceptor: (config) => {
-      const token = sessionStorage.getItem('token')
+      const token = store.getState().auth.token
       if (token) {
         config.headers.Authorization = `Bearer ${token}`
       }
