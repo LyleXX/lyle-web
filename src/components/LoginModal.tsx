@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import MyModal from './Modal'
 import { Form } from 'antd'
+import { login } from 'service/user'
 
 interface IProps {
   modalShow: boolean
@@ -11,6 +12,7 @@ const LoginModal = memo((props: IProps) => {
   const { modalShow, setModalShow } = props
   const handleSubmit = (values: { username: string; password: string }) => {
     console.log(values)
+    login(values)
   }
   return (
     <>

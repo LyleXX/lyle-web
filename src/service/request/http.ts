@@ -1,7 +1,8 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { TIMEOUT, BASE_URL } from './config'
-import message from 'utils/message'
+import { message } from 'antd'
 import { store } from 'store'; // 假设你已经创建了Redux store
+
 interface IJJRequestInterceptors<T = AxiosResponse> {
   //请求成功
   requestInterceptor?: (config: AxiosRequestConfig) => AxiosRequestConfig
@@ -33,6 +34,7 @@ class JJRequest {
       },
       (error) => {
         console.log('全局请求失败拦截', error)
+        return error
       }
     )
     //全局响应拦截
@@ -104,7 +106,7 @@ class JJRequest {
 }
 //service/index.ts
 //使用环境配置
-export const http = new JJRequest({
+export default new JJRequest({
   baseURL: BASE_URL,
   timeout: TIMEOUT,
   interceptors: {
