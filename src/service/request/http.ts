@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { TIMEOUT, BASE_URL } from './config'
 import { message } from 'antd'
-import { store } from 'store'; // 假设你已经创建了Redux store
+
 
 interface IJJRequestInterceptors<T = AxiosResponse> {
   //请求成功
@@ -29,11 +29,10 @@ class JJRequest {
     //全局请求拦截
     this.instance.interceptors.request.use(
       (config) => {
-        console.log(config)
         return config
       },
       (error) => {
-        console.log('全局请求失败拦截', error)
+
         return error
       }
     )
@@ -41,16 +40,17 @@ class JJRequest {
     this.instance.interceptors.response.use(
       (res) => {
         //res为AxiosResponse类型，含有config\data\headers\request\status\statusText属性
-        console.log(res)
-        message.success('请求成功')
+
+        if (res.data.code === 0) {
+          message.success('请求成功')
+        }
+        else {
+          message.error(res.data.message)
+        }
         //改造返回的数据类型，即将AxiosResponse的data返回
         return res.data
       },
       (error) => {
-        console.log('全局响应失败拦截')
-        console.log(error.request)//
-        console.log(error.response)
-        message.error(error.message)
         return error
       }
     )
@@ -83,7 +83,7 @@ class JJRequest {
           resolve(res)
         })
         .catch((err) => {
-          console.log('=====', err)
+
           reject(err)
         })
     })
@@ -106,12 +106,12 @@ class JJRequest {
 }
 //service/index.ts
 //使用环境配置
-export default new JJRequest({
+export const http = new JJRequest({
   baseURL: BASE_URL,
   timeout: TIMEOUT,
   interceptors: {
     requestInterceptor: (config) => {
-      const token = store.getState().auth.token
+      const token = sessionStorage.getItem('token')
       if (token) {
         config.headers.Authorization = `Bearer ${token}`
       }

@@ -2,7 +2,6 @@ import React, { memo } from 'react'
 import MyModal from './Modal'
 import { Form } from 'antd'
 import { login } from 'service/user'
-
 interface IProps {
   modalShow: boolean
   setModalShow: (val: boolean) => void
@@ -10,21 +9,25 @@ interface IProps {
 
 const LoginModal = memo((props: IProps) => {
   const { modalShow, setModalShow } = props
-  const handleSubmit = (values: { username: string; password: string }) => {
-    console.log(values)
-    login(values)
+  const handleSubmit = (values: { name: string; password: string }) => {
+    login(values).then((res) => {
+      if (res.code === 0) {
+        sessionStorage.setItem('token', res.data.token)
+        setModalShow(false)
+      }
+    })
   }
   return (
     <>
       <MyModal modalShow={modalShow} setModalShow={setModalShow} title="登录" footer={<></>}>
         <div>
-          <Form onFinish={handleSubmit} initialValues={{ username: '', password: '' }}>
+          <Form onFinish={handleSubmit} initialValues={{ name: '', password: '' }}>
             <p className="text-lb">用户名</p>
 
-            <Form.Item name={'username'} rules={[{ required: true, message: '请输入用户名' }]}>
-              <input type="text" placeholder={'用户名'} className="input mt-10" id={'username'} />
+            <Form.Item name={'name'} rules={[{ required: true, message: '请输入用户名' }]}>
+              <input type="text" placeholder={'用户名'} className="input mt-10" id={'name'} />
             </Form.Item>
-            <p className="text-lb mt-25">密码</p>
+            <p className="mt-25 text-lb">密码</p>
 
             <Form.Item name={'password'} rules={[{ required: true, message: '请输入密码' }]}>
               <input placeholder={'密码'} type="password" id={'password'} className="input mt-10" />

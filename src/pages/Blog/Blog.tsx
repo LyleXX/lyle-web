@@ -2,7 +2,6 @@ import React, { memo, useState } from 'react'
 import { ReactComponent as Plus } from 'assets/svg/plus.svg'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { token } from 'store/auth.slice'
 import dayjs from 'dayjs'
 import Pagination from 'components/Pagination'
 
@@ -10,7 +9,7 @@ const Blog = memo(() => {
   const navigate = useNavigate()
   const [pageIndex, setIndex] = useState(1)
   const [totalPage] = useState(5)
-  const auth = useSelector(token)
+  const auth = sessionStorage.getItem('token')
   function jumpAdd() {
     navigate('/blog/add')
   }

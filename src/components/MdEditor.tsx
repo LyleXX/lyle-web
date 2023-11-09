@@ -61,7 +61,6 @@ const MdEditor = memo(() => {
   }, [theme])
 
   function logVd() {
-    console.log(vditorRef.current.getValue())
     localStorage.removeItem('vditorvditor')
   }
   return (
