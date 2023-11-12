@@ -1,13 +1,17 @@
-import React, { memo, useEffect, useRef } from 'react'
+import React, { memo, useEffect } from 'react'
 import 'vditor/dist/index.css'
 import Vditor from 'vditor'
 import { selectTheme } from 'store/theme.slice'
 import { useSelector } from 'react-redux'
 import styled from '@emotion/styled'
 
-const MdEditor = memo(() => {
+interface MdEditorProps {
+  vditorRef: React.MutableRefObject<any>
+}
+
+const MdEditor = memo((props: MdEditorProps) => {
+  const { vditorRef } = props
   const theme = useSelector(selectTheme)
-  const vditorRef = useRef(null)
   useEffect(() => {
     vditorRef.current = new Vditor('vditor', {
       minHeight: 500,
@@ -60,17 +64,9 @@ const MdEditor = memo(() => {
     })
   }, [theme])
 
-  function logVd() {
-    localStorage.removeItem('vditorvditor')
-  }
   return (
     <VditorContainer>
       <div id="vditor" className="vditor text-t3" />
-      <div className="mt-10 flex justify-end">
-        <button className="btn btn-o btn-md flex items-center text-t3" onClick={logVd}>
-          新增blog
-        </button>
-      </div>
     </VditorContainer>
   )
 })

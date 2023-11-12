@@ -56,12 +56,12 @@ class JJRequest {
     )
     //实例级别拦截
     this.instance.interceptors.request.use(
-      this.interceptors?.requestInterceptor as any,
-      this.interceptors?.requestInterceptorCatch
+      config.interceptors?.requestInterceptor as any,
+      config.interceptors?.requestInterceptorCatch
     )
     this.instance.interceptors.response.use(
-      this.interceptors?.responseInterceptor,
-      this.interceptors?.responseInterceptorCatch
+      config.interceptors?.responseInterceptor,
+      config.interceptors?.responseInterceptorCatch
     )
 
 

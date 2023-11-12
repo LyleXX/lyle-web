@@ -27,6 +27,7 @@ module.exports = {
         bd: 'rgb(var(--bd) / <alpha-value>)',
         ph: 'rgb(var(--ph) / <alpha-value>)',
         lb: 'rgb(var(--lb) / <alpha-value>)',
+        er: 'rgb(var(--er) / <alpha-value>)',
         white: '#fff',
       },
       borderColor: {

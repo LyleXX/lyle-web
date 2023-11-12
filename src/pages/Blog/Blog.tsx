@@ -1,14 +1,37 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useEffect } from 'react'
 import { ReactComponent as Plus } from 'assets/svg/plus.svg'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import dayjs from 'dayjs'
 import Pagination from 'components/Pagination'
+import { getBlogList } from 'service/blog'
 
 const Blog = memo(() => {
-  const navigate = useNavigate()
+  const [blogList, setBlogList] = useState([])
   const [pageIndex, setIndex] = useState(1)
-  const [totalPage] = useState(5)
+  const [totalPage, setTotalPage] = useState(0)
+
+  useEffect(() => {
+    getBlogList({
+      offset: (pageIndex - 1) * 5,
+      limit: 5,
+    }).then((res) => {
+      res.data.forEach((item, index) => {
+        if (res.data[index] && res.data[index + 1]) {
+          if (
+            index % 5 !== 0 &&
+            dayjs(res.data[index].updateAt).year() === dayjs(res.data[index + 1].updateAt).year()
+          ) {
+            res.data[index].showYear = false
+          } else {
+            res.data[index].showYear = true
+          }
+        }
+      })
+      setTotalPage(Math.ceil(res.total / 5))
+      setBlogList(res.data)
+    })
+  }, [pageIndex])
+  const navigate = useNavigate()
   const auth = sessionStorage.getItem('token')
   function jumpAdd() {
     navigate('/blog/add')
@@ -16,14 +39,7 @@ const Blog = memo(() => {
   function jumpDetail(id) {
     navigate(`/blog/${id}`)
   }
-  const blogList = [
-    {
-      id: 1,
-      showYear: true,
-      createAt: '2023-09-28',
-      title: 'Hello World',
-    },
-  ]
+
   return (
     <div className=" px-10 ">
       {auth && (
@@ -40,7 +56,7 @@ const Blog = memo(() => {
             <div className="pl-200" key={blog.id}>
               {blog.showYear && (
                 <div className="mx-70 text-52 font-6 italic text-[#dedede]">
-                  {dayjs(blog.createAt).year()}
+                  {dayjs(blog.updateAt).year()}
                 </div>
               )}
               <div className="  ml-50 border-l-5 border-p/50 py-20 pl-20">
@@ -52,7 +68,7 @@ const Blog = memo(() => {
                   {blog.title}
                 </div>
                 <div className="-translate-x-[28.5px] rounded-full bg-p sq-12"></div>
-                <div className="px-20 text-t3">{blog.createAt}</div>
+                <div className="px-20 text-t3">{dayjs(blog.updateAt).format('YYYY-MM-DD')}</div>
               </div>
             </div>
           )

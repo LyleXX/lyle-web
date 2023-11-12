@@ -133,13 +133,15 @@ html ::-webkit-scrollbar {
   --bd: 241 242 242;
 
   --n: 78 86 107;
-  --lb: 155 155 155, --t1: 0 0 0;
+  --lb: 155 155 155;
+  --t1: 0 0 0;
   --t3: 155 155 155;
   --t4: 198 198 198;
 
   --p: 66 0 64;
   --pt: 66 0 64;
   --ph: 155 155 155; // placeholder
+  --er: 234 41 60;
 }
 .dark {
   --b1: 38 40 49;
@@ -247,5 +249,29 @@ html ::-webkit-scrollbar {
 
   &::placeholder {
     color: rgb(var(--ph) / var(--tw-text-opacity));
+  }
+}
+
+.btn-er-soft {
+  background-color: rgb(var(--er) / 0.1);
+  --tw-text-opacity: 1;
+  color: rgb(var(--er) / var(--tw-text-opacity));
+
+  &:hover {
+    background-color: rgb(var(--er) / 0.2);
+  }
+
+  &:active {
+    background-color: rgb(var(--er) / 0.3);
+  }
+  .dark & {
+    background-color: rgb(var(--er) / 0.1);
+    &:hover {
+      background-color: rgb(var(--er) / 0.1);
+    }
+
+    &:active {
+      background-color: rgb(var(--er) / 0.1);
+    }
   }
 }
