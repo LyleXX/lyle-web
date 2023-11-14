@@ -4,12 +4,15 @@ import Vditor from 'vditor'
 import { selectTheme } from 'store/theme.slice'
 import { useSelector } from 'react-redux'
 import styled from '@emotion/styled'
+import { BASE_URL } from 'service/request/config'
+import { uploadPicture } from 'service/file'
 
 interface MdEditorProps {
   vditorRef: React.MutableRefObject<any>
 }
 
 const MdEditor = memo((props: MdEditorProps) => {
+  const token = sessionStorage.getItem('token')
   const { vditorRef } = props
   const theme = useSelector(selectTheme)
   useEffect(() => {
@@ -61,8 +64,34 @@ const MdEditor = memo((props: MdEditorProps) => {
           ],
         },
       ],
+      upload: {
+        accept: 'image/jpg, image/jpeg, image/png', //规定上传的图片格式
+        url: `${BASE_URL}/file/upload`, //请求的接口
+        multiple: false,
+        fieldName: 'file',
+        linkToImgUrl: `${BASE_URL}/file/upload`,
+
+        filename(name) {
+          return name
+            .replace(/[^(a-zA-Z0-9\u4e00-\u9fa5\.)]/g, '')
+            .replace(/[\?\\/:|<>\*\[\]\(\)\$%\{\}@~]/g, '')
+            .replace('/\\s/g', '')
+        },
+        handler(files) {
+          console.log(files)
+          let imgUrl = ''
+          const formData = new FormData()
+          const name = files[0].name
+          formData.append('picture', files[0])
+          uploadPicture(formData).then((res) => {
+            imgUrl = res.data as string
+            vditorRef?.current?.insertValue(`![${name}](${res.data})`)
+          })
+          return imgUrl
+        },
+      },
     })
-  }, [theme])
+  }, [theme, vditorRef])
 
   return (
     <VditorContainer>
