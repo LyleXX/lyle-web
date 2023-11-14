@@ -15,7 +15,7 @@ const Blog = memo(() => {
       offset: (pageIndex - 1) * 5,
       limit: 5,
     }).then((res) => {
-      res.data.forEach((item, index) => {
+      res.data?.forEach((item, index) => {
         if (res.data[index] && res.data[index + 1]) {
           if (
             index % 5 !== 0 &&
@@ -51,28 +51,29 @@ const Blog = memo(() => {
         </div>
       )}
       <div className="mt-20">
-        {blogList.map((blog) => {
-          return (
-            <div className="pl-200" key={blog.id}>
-              {blog.showYear && (
-                <div className="mx-70 text-52 font-6 italic text-[#dedede]">
-                  {dayjs(blog.updateAt).year()}
-                </div>
-              )}
-              <div className="  ml-50 border-l-5 border-p/50 py-20 pl-20">
-                <div
-                  className="inline-block cursor-pointer rounded-full px-20 py-7 font-serif text-20 text-t1 hover:bg-t3/10
+        {blogList?.length > 0 &&
+          blogList.map((blog) => {
+            return (
+              <div className="pl-200" key={blog.id}>
+                {blog.showYear && (
+                  <div className="mx-70 text-52 font-6 italic text-[#dedede]">
+                    {dayjs(blog.updateAt).year()}
+                  </div>
+                )}
+                <div className="  ml-50 border-l-5 border-p/50 py-20 pl-20">
+                  <div
+                    className="inline-block cursor-pointer rounded-full px-20 py-7 font-serif text-20 text-t1 hover:bg-t3/10
                   hover:text-pt dark:hover:bg-p"
-                  onClick={() => jumpDetail(blog.id)}
-                >
-                  {blog.title}
+                    onClick={() => jumpDetail(blog.id)}
+                  >
+                    {blog.title}
+                  </div>
+                  <div className="-translate-x-[28.5px] rounded-full bg-p sq-12"></div>
+                  <div className="px-20 text-t3">{dayjs(blog.updateAt).format('YYYY-MM-DD')}</div>
                 </div>
-                <div className="-translate-x-[28.5px] rounded-full bg-p sq-12"></div>
-                <div className="px-20 text-t3">{dayjs(blog.updateAt).format('YYYY-MM-DD')}</div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
       </div>
       <Pagination
         className="mt-20 flex justify-end"

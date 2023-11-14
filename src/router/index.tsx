@@ -21,11 +21,11 @@ const routes = [
   },
   {
     path: '/blog',
-    element: <Blog />,
+    element: isAuth ? <Blog /> : <Navigate to="/home" />,
   },
   {
     path: '/blog/:id',
-    element: <BlogDetail />,
+    element: isAuth ? <BlogDetail /> : <Navigate to="/home" />,
   },
   {
     path: '/blog/add',
