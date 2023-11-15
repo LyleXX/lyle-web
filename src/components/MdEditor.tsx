@@ -85,7 +85,7 @@ const MdEditor = memo((props: MdEditorProps) => {
           formData.append('picture', files[0])
           uploadPicture(formData).then((res) => {
             imgUrl = res.data as string
-            vditorRef?.current?.insertValue(`![${name}](${res.data})`)
+            vditorRef?.current?.insertValue(`![${name}](http://${res.data})`)
           })
           return imgUrl
         },
